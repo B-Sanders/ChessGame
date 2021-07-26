@@ -15,9 +15,6 @@
 typedef struct OpaqueChessBoard {
   size_t width;
   size_t height;
-  bool whiteCanCastle;
-  bool blackCanCastle;
-  bool enPassantPossible;
   ChessPieceRef board[DEFAULT_HEIGHT][DEFAULT_WIDTH];
 } ChessBoard;
 
@@ -28,8 +25,6 @@ static StatusCode CreateDefaultChessBoard(ChessBoardRef *aBoard) {
   **aBoard = (ChessBoard){
     .width = DEFAULT_WIDTH,
     .height = DEFAULT_HEIGHT,
-    .whiteCanCastle = true,
-    .blackCanCastle = true
   };
   if (!(*aBoard)) {
     theStatus = failedToAllocMemory;
@@ -123,3 +118,57 @@ ChessPieceRef ChessBoardGetPieceAtIndex(ChessBoardRef aBoard, size_t aRow, size_
   }
   return aBoard->board[aRow][aColumn];
 }
+
+StatusCode ChessBoardMovePieceAtIndex(ChessBoardRef aBoard,
+                                      size_t aFromRow,
+                                      size_t aFromColumn,
+                                      size_t aToRow,
+                                      size_t aToColumn
+                                      ) {
+  StatusCode theStatus = noError;
+  if (!aBoard) {
+    theStatus = badPointer;
+    goto bail;
+  }
+  if (aFromRow >= aBoard->height ||
+      aFromColumn >= aBoard->width ||
+      aToRow >= aBoard->height ||
+      aToColumn >= aBoard->width) {
+    theStatus = indexOutOfBounds;
+    goto bail;
+  }
+  ChessPieceRef theMovingPiece = ChessBoardGetPieceAtIndex(aBoard, aFromRow, aFromColumn);
+  if (!theMovingPiece) {
+    theStatus = invalidPieceCoordinate;
+    goto bail;
+  }
+  ChessPieceRef theToSquarePiece = ChessBoardGetPieceAtIndex(aBoard, aToRow, aToColumn);
+  if (theToSquarePiece) { free(theToSquarePiece); }
+  aBoard->board[aToRow][aToColumn] = theMovingPiece;
+  aBoard->board[aFromRow][aFromColumn] = NULL;
+  
+bail:
+  return theStatus;
+}
+
+extern StatusCode ChessBoardTransformPieceAtIndex(ChessBoardRef aBoard, ChessPieceType aType, size_t aRow, size_t aColumn) {
+  StatusCode theResult = noError;
+  if (!aBoard) {
+    theResult = badPointer;
+    goto bail;
+  }
+  if (aRow >= aBoard->height || aColumn >= aBoard->width) {
+    theResult = indexOutOfBounds;
+    goto bail;
+  }
+  ChessPieceRef thePiece = ChessBoardGetPieceAtIndex(aBoard, aRow, aColumn);
+  if (!thePiece) {
+    theResult = invalidPieceCoordinate;
+    goto bail;
+  }
+  theResult = ChessPieceTransformPiece(thePiece, aType);
+  
+bail:
+  return theResult;
+}
+

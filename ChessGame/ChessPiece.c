@@ -50,3 +50,9 @@ char* ChessPieceGetTypeString(ChessPieceRef aPiece) {
       return "";
   }
 }
+
+StatusCode ChessPieceTransformPiece(ChessPieceRef aPiece, ChessPieceType aType) {
+  if (!aPiece) { return badPointer; }
+  aPiece->type = aType;
+  return noError;
+}

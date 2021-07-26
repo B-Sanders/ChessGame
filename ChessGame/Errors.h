@@ -20,7 +20,8 @@ typedef enum {
   indexOutOfBounds = 4,
   // 100 - 199 Board Errors
   invalidBoardSize = 100,
-  expectedNullPtr = 101
+  expectedNullPtr = 101,
+  invalidPieceCoordinate = 102
 } statusCodes;
 
 void ErrorHandleCode(StatusCode aStatusCode);

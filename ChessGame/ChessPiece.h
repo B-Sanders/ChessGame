@@ -9,6 +9,7 @@
 #define ChessPiece_h
 
 #include <stdint.h>
+#include "Errors.h"
 
 typedef struct OpaqueChessPiece ChessPiece;
 typedef struct OpaqueChessPiece *ChessPieceRef;
@@ -36,5 +37,7 @@ extern ChessPieceColor ChessPieceGetColor(ChessPieceRef aPiece);
 // Returns Piece color, or -1 if piece is null.
 extern ChessPieceType ChessPieceGetType(ChessPieceRef aPiece);
 extern char* ChessPieceGetTypeString(ChessPieceRef aPiece);
+
+extern StatusCode ChessPieceTransformPiece(ChessPieceRef aPiece, ChessPieceType aType);
 
 #endif /* ChessPiece_h */

@@ -50,9 +50,9 @@
 
 - (void)testBoardCreateAndPiecesAtIndex {
   ChessBoardRef theBoard = NULL;
-  StatusCode theCode = ChessBoardInitBoard(&theBoard, BoardLayoutDefault);
+  StatusCode theResult = ChessBoardInitBoard(&theBoard, BoardLayoutDefault);
   XCTAssertNotEqual(theBoard, NULL, @"Failed to create board");
-  XCTAssertEqual(theCode, 0, @"Wrong status result from board");
+  XCTAssertEqual(theResult, noError, @"Wrong status result from board");
   
   ChessPieceRef theWhitePawn = ChessBoardGetPieceAtIndex(theBoard, 1, A);
   XCTAssertNotEqual(theWhitePawn, NULL, @"Should return valid piece");
@@ -74,7 +74,42 @@
   XCTAssertEqual(ChessPieceGetColor(theBlackQueen), black, @"Expected black queen");
   XCTAssertEqual(ChessPieceGetType(theBlackQueen), queen, @"Expected black queen");
   
-  ChessBoardTearDown(theBoard);
+  XCTAssertEqual(ChessBoardTearDown(theBoard), noError, @"Board tear down failed");
+}
+
+- (void)testPieceMovementOnBoard {
+  // TODO: Maybe this can be moved to setup.
+  ChessBoardRef theBoard = NULL;
+  StatusCode theResult = ChessBoardInitBoard(&theBoard, BoardLayoutDefault);
+  XCTAssertEqual(theResult, noError, @"Board init fail.");
+  
+  theResult = ChessBoardMovePieceAtIndex(theBoard, 1, A, 3, A);
+  XCTAssertEqual(theResult, noError, @"Piece move fail.");
+  ChessPieceRef theFromSquare = ChessBoardGetPieceAtIndex(theBoard, 1, A);
+  XCTAssertEqual(theFromSquare, NULL, @"Piece not properly removed from original square.");
+  ChessPieceRef theToSquare = ChessBoardGetPieceAtIndex(theBoard, 3, A);
+  XCTAssertNotEqual(theToSquare, NULL, @"Piece not properly moved to desired square.");
+  XCTAssertEqual(ChessPieceGetColor(theToSquare), white, @"Expected white pawn");
+  XCTAssertEqual(ChessPieceGetType(theToSquare), pawn, @"Expected white pawn");
+  
+  // TODO: Maybe this can be moved to tear down.
+  XCTAssertEqual(ChessBoardTearDown(theBoard), noError, @"Board tear down failed");
+}
+
+- (void)testPieceTransform {
+  ChessBoardRef theBoard = NULL;
+  StatusCode theResult = ChessBoardInitBoard(&theBoard, BoardLayoutDefault);
+  XCTAssertEqual(theResult, noError, @"Board init fail.");
+  
+  theResult = ChessBoardTransformPieceAtIndex(theBoard, queen, 1, A);
+  XCTAssertEqual(theResult, noError, @"Piece move fail.");
+  
+  ChessPieceRef thePiece = ChessBoardGetPieceAtIndex(theBoard, 1, A);
+  XCTAssertNotEqual(thePiece, NULL, @"Should return valid piece");
+  XCTAssertEqual(ChessPieceGetColor(thePiece), white, @"Expected white queen");
+  XCTAssertEqual(ChessPieceGetType(thePiece), queen, @"Expected white queen");
+  
+  XCTAssertEqual(ChessBoardTearDown(theBoard), noError, @"Board tear down failed");
 }
 
 - (void)testPerformanceExample {
