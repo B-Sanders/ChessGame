@@ -30,7 +30,11 @@ typedef enum {
   king
 } PieceType;
 
-ChessPieceRef ChessPieceCreate(PieceColors aColor, PieceType aType);
-char* ChessPieceGetTypeString(ChessPieceRef aPiece);
+extern ChessPieceRef ChessPieceCreate(PieceColors aColor, PieceType aType);
+// Returns Piece color, or -1 if piece is null.
+extern ChessPieceColor ChessPieceGetColor(ChessPieceRef aPiece);
+// Returns Piece color, or -1 if piece is null.
+extern ChessPieceType ChessPieceGetType(ChessPieceRef aPiece);
+extern char* ChessPieceGetTypeString(ChessPieceRef aPiece);
 
 #endif /* ChessPiece_h */

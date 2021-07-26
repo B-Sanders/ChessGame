@@ -11,6 +11,18 @@
 		D3CE75DC26ACCF2B00B1FE39 /* ChessBoard.c in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75DB26ACCF2B00B1FE39 /* ChessBoard.c */; };
 		D3CE75DF26ACD12500B1FE39 /* Errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75DE26ACD12500B1FE39 /* Errors.c */; };
 		D3CE75E226ACE4B900B1FE39 /* ChessPiece.c in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75E126ACE4B900B1FE39 /* ChessPiece.c */; };
+		D3CE75EA26AD2A1300B1FE39 /* ChessGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75E926AD2A1300B1FE39 /* ChessGameTests.m */; };
+		D3CE75F126AD2AAD00B1FE39 /* ChessBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CE75DA26ACCF2B00B1FE39 /* ChessBoard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3CE75F226AD2AB000B1FE39 /* ChessPiece.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CE75E026ACE4B900B1FE39 /* ChessPiece.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3CE75F326AD2AB300B1FE39 /* ChessGame.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CE75EF26AD2A3100B1FE39 /* ChessGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3CE75F426AD2ABA00B1FE39 /* Errors.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CE75DD26ACD12500B1FE39 /* Errors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3CE75F726AE573F00B1FE39 /* ChessBoard.h in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75DA26ACCF2B00B1FE39 /* ChessBoard.h */; };
+		D3CE75F826AE573F00B1FE39 /* ChessPiece.h in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75E026ACE4B900B1FE39 /* ChessPiece.h */; };
+		D3CE75F926AE573F00B1FE39 /* ChessGame.h in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75EF26AD2A3100B1FE39 /* ChessGame.h */; };
+		D3CE75FA26AE576200B1FE39 /* ChessBoard.c in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75DB26ACCF2B00B1FE39 /* ChessBoard.c */; };
+		D3CE75FB26AE576200B1FE39 /* Errors.h in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75DD26ACD12500B1FE39 /* Errors.h */; };
+		D3CE75FC26AE576200B1FE39 /* Errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75DE26ACD12500B1FE39 /* Errors.c */; };
+		D3CE75FD26AE576200B1FE39 /* ChessPiece.c in Sources */ = {isa = PBXBuildFile; fileRef = D3CE75E126ACE4B900B1FE39 /* ChessPiece.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,10 +46,21 @@
 		D3CE75DE26ACD12500B1FE39 /* Errors.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Errors.c; sourceTree = "<group>"; };
 		D3CE75E026ACE4B900B1FE39 /* ChessPiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessPiece.h; sourceTree = "<group>"; };
 		D3CE75E126ACE4B900B1FE39 /* ChessPiece.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ChessPiece.c; sourceTree = "<group>"; };
+		D3CE75E726AD2A1300B1FE39 /* ChessGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3CE75E926AD2A1300B1FE39 /* ChessGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessGameTests.m; sourceTree = "<group>"; };
+		D3CE75EB26AD2A1300B1FE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3CE75EF26AD2A3100B1FE39 /* ChessGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessGame.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D3CE75CD26ACCF0000B1FE39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3CE75E426AD2A1300B1FE39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				D3CE75D226ACCF0000B1FE39 /* ChessGame */,
+				D3CE75E826AD2A1300B1FE39 /* ChessGameTests */,
 				D3CE75D126ACCF0000B1FE39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				D3CE75D026ACCF0000B1FE39 /* ChessGame */,
+				D3CE75E726AD2A1300B1FE39 /* ChessGameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,17 +98,42 @@
 				D3CE75DE26ACD12500B1FE39 /* Errors.c */,
 				D3CE75E026ACE4B900B1FE39 /* ChessPiece.h */,
 				D3CE75E126ACE4B900B1FE39 /* ChessPiece.c */,
+				D3CE75EF26AD2A3100B1FE39 /* ChessGame.h */,
 			);
 			path = ChessGame;
 			sourceTree = "<group>";
 		};
+		D3CE75E826AD2A1300B1FE39 /* ChessGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3CE75E926AD2A1300B1FE39 /* ChessGameTests.m */,
+				D3CE75EB26AD2A1300B1FE39 /* Info.plist */,
+			);
+			path = ChessGameTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D3CE75F026AD2A9A00B1FE39 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3CE75F226AD2AB000B1FE39 /* ChessPiece.h in Headers */,
+				D3CE75F326AD2AB300B1FE39 /* ChessGame.h in Headers */,
+				D3CE75F426AD2ABA00B1FE39 /* Errors.h in Headers */,
+				D3CE75F126AD2AAD00B1FE39 /* ChessBoard.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		D3CE75CF26ACCF0000B1FE39 /* ChessGame */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3CE75D726ACCF0000B1FE39 /* Build configuration list for PBXNativeTarget "ChessGame" */;
 			buildPhases = (
+				D3CE75F026AD2A9A00B1FE39 /* Headers */,
 				D3CE75CC26ACCF0000B1FE39 /* Sources */,
 				D3CE75CD26ACCF0000B1FE39 /* Frameworks */,
 				D3CE75CE26ACCF0000B1FE39 /* CopyFiles */,
@@ -97,6 +147,23 @@
 			productReference = D3CE75D026ACCF0000B1FE39 /* ChessGame */;
 			productType = "com.apple.product-type.tool";
 		};
+		D3CE75E626AD2A1300B1FE39 /* ChessGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3CE75EC26AD2A1300B1FE39 /* Build configuration list for PBXNativeTarget "ChessGameTests" */;
+			buildPhases = (
+				D3CE75E326AD2A1300B1FE39 /* Sources */,
+				D3CE75E426AD2A1300B1FE39 /* Frameworks */,
+				D3CE75E526AD2A1300B1FE39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChessGameTests;
+			productName = ChessGameTests;
+			productReference = D3CE75E726AD2A1300B1FE39 /* ChessGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -106,6 +173,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					D3CE75CF26ACCF0000B1FE39 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					D3CE75E626AD2A1300B1FE39 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -124,9 +194,20 @@
 			projectRoot = "";
 			targets = (
 				D3CE75CF26ACCF0000B1FE39 /* ChessGame */,
+				D3CE75E626AD2A1300B1FE39 /* ChessGameTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3CE75E526AD2A1300B1FE39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3CE75CC26ACCF0000B1FE39 /* Sources */ = {
@@ -137,6 +218,21 @@
 				D3CE75E226ACE4B900B1FE39 /* ChessPiece.c in Sources */,
 				D3CE75DC26ACCF2B00B1FE39 /* ChessBoard.c in Sources */,
 				D3CE75DF26ACD12500B1FE39 /* Errors.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3CE75E326AD2A1300B1FE39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3CE75FA26AE576200B1FE39 /* ChessBoard.c in Sources */,
+				D3CE75FB26AE576200B1FE39 /* Errors.h in Sources */,
+				D3CE75FC26AE576200B1FE39 /* Errors.c in Sources */,
+				D3CE75FD26AE576200B1FE39 /* ChessPiece.c in Sources */,
+				D3CE75F726AE573F00B1FE39 /* ChessBoard.h in Sources */,
+				D3CE75F826AE573F00B1FE39 /* ChessPiece.h in Sources */,
+				D3CE75F926AE573F00B1FE39 /* ChessGame.h in Sources */,
+				D3CE75EA26AD2A1300B1FE39 /* ChessGameTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +370,40 @@
 			};
 			name = Release;
 		};
+		D3CE75ED26AD2A1300B1FE39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 2823D93WSR;
+				INFOPLIST_FILE = ChessGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ucsd.bsanders.ChessGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D3CE75EE26AD2A1300B1FE39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 2823D93WSR;
+				INFOPLIST_FILE = ChessGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.ucsd.bsanders.ChessGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -291,6 +421,15 @@
 			buildConfigurations = (
 				D3CE75D826ACCF0000B1FE39 /* Debug */,
 				D3CE75D926ACCF0000B1FE39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3CE75EC26AD2A1300B1FE39 /* Build configuration list for PBXNativeTarget "ChessGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3CE75ED26AD2A1300B1FE39 /* Debug */,
+				D3CE75EE26AD2A1300B1FE39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

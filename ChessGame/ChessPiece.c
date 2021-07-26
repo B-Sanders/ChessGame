@@ -22,6 +22,15 @@ ChessPieceRef ChessPieceCreate(PieceColors aColor, PieceType aType) {
   return thePiece;
 }
 
+ChessPieceColor ChessPieceGetColor(ChessPieceRef aPiece) {
+  if (!aPiece) { return -1; }
+  return aPiece->color;
+}
+ChessPieceType ChessPieceGetType(ChessPieceRef aPiece) {
+  if (!aPiece) { return -1; }
+  return aPiece->type;
+}
+
 char* ChessPieceGetTypeString(ChessPieceRef aPiece) {
   if (!aPiece) { return ""; }
   switch (aPiece->type) {

@@ -21,21 +21,6 @@ typedef struct OpaqueChessBoard {
   ChessPieceRef board[DEFAULT_HEIGHT][DEFAULT_WIDTH];
 } ChessBoard;
 
-//static size_t getBoardIndex(size_t aRow, size_t aColumn, size_t aHeight, size_t aWidth) {
-//  if (aRow >= aHeight || aColumn >= aWidth) { return INVALID_INDEX; }
-//  return aWidth * aRow + aColumn;
-//}
-//
-//static StatusCode BoardAssignValue(ChessBoardRef aBoard,
-//                                   ChessPieceRef aPiece,
-//                                   size_t aRow, size_t aColumn) {
-//  if (!aBoard) { return badPointer; }
-//  size_t theIndex = getBoardIndex(aRow, aColumn, aBoard->height, aBoard->width);
-//  if (theIndex == INVALID_INDEX) { return indexOutOfBounds; }
-//  aBoard->board[aRow][aColumn] = aPiece;
-//  return noError;
-//}
-
 static StatusCode CreateDefaultChessBoard(ChessBoardRef *aBoard) {
   StatusCode theStatus = noError;
   // TODO: this is some error, I am only allocating space for the board array not the struct.
@@ -119,6 +104,17 @@ StatusCode ChessBoardInitBoard(ChessBoardRef *aBoard,
   
 bail:
   return theStatus;
+}
+
+StatusCode ChessBoardTearDown(ChessBoardRef aBoard) {
+  if (!aBoard) { return badPointer; }
+  for (int i = 0; i < aBoard->height; i++) {
+    for (int j = 0; j < aBoard->width; j++) {
+      free(aBoard->board[i][j]);
+    }
+  }
+  free(aBoard);
+  return noError;
 }
 
 ChessPieceRef ChessBoardGetPieceAtIndex(ChessBoardRef aBoard, size_t aRow, size_t aColumn) {
