@@ -12,6 +12,10 @@
 #include "Errors.h"
 #include "ChessPiece.h"
 
+/* Functions which take action on the board assume no knowledge about the game being played.
+ Do not expect invalid moves to be rejected by the functions, unless there is an index out-of-bounds, you are requesting to make an action on a coordinate in which a piece does not actually live, or similar egregious inputs are given.
+ */
+
 typedef struct OpaqueChessBoard ChessBoard;
 typedef struct OpaqueChessBoard *ChessBoardRef;
 
@@ -38,6 +42,7 @@ extern StatusCode ChessBoardMovePieceAtIndex(ChessBoardRef aBoard,
                                              size_t aToRow,
                                              size_t aToColumn
                                              );
-
+/* Transforms piece at given coordinates to the given type.
+ Function assumes a valid type, and valid piece to transform. */
 extern StatusCode ChessBoardTransformPieceAtIndex(ChessBoardRef aBoard, ChessPieceType aType, size_t aRow, size_t aColumn);
 #endif /* ChessBoard_h */
